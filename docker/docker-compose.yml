@@ -6,3 +6,15 @@ services:
       - "8888:80"
     volumes:
       - ../frontend/dist:/usr/share/nginx/html/:rw
+      - ../backend/web:/usr/share/nginx/web/:rw
+      - ./nginx/conf:/etc/nginx/conf.d:rw
+    links:
+      - php-fpm:fpm
+
+  php-fpm:
+    image: php:latest
+    expose:
+      - "9000"
+    volumes:
+      - ../frontend/dist:/usr/share/nginx/html/:rw
+      - ../backend/web:/usr/share/nginx/web/:rw
