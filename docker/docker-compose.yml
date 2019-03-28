@@ -3,32 +3,34 @@ services:
   nginx:
     image: nginx:latest
     ports:
-      - "8888:80"
+      - 8888:80
+    expose:
+      - 80
     depends_on:
-      - "php"
+      - php
     volumes:
       - ../frontend/dist/:/usr/share/nginx/html/:rw
-      - ./php/:/usr/share/nginx/html/:rw
+      - ./php/:/usr/share/nginx/web/:rw
       - ./nginx/conf/:/etc/nginx/conf.d/:rw
     links:
       - php:php
     networks:
       - backend
-    container_name: "nginx"
+    container_name: nginx
     restart: always
 
   php:
     image: php:7.2-fpm
     ports:
-      - "9000:9000"
+      - 9000:9000
     volumes:
       - ../frontend/dist:/usr/share/nginx/html/:rw
-      - ./php/:/usr/share/nginx/html/:rw
+      - ./php/:/usr/share/nginx/web/:rw
     expose:
-      - "9000"
+      - 9000
     networks:
       - backend
-    container_name: "php"
+    container_name: php
     restart: always
 
 networks:
