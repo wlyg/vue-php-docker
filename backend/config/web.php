@@ -58,7 +58,7 @@ $config = [
         ],
         'mongodb' => [
             'class' => 'yii\mongodb\Connection',
-            'dsn' => 'mongodb://localhost:27017/new-world',
+            'dsn' => 'mongodb://mongo:27017/new-world',
             // 'options' => [
             //     "username" => "Username",
             //     "password" => "Password"
@@ -67,8 +67,8 @@ $config = [
         'weConnect' => [
             'class' => 'app\components\WeConnect',
         ],
-        'resque' => [ 
-            'class' => '\resque\RResque', 
+        'resque' => [
+            'class' => '\resque\RResque',
             'server' => 'localhost',     // Redis server address
             'port' => '6379',            // Redis server port
             'database' => 0,             // Redis database number

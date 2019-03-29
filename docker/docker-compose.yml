@@ -2,36 +2,54 @@ version: '2'
 services:
   nginx:
     image: nginx:latest
+    container_name: nginx
+    restart: always
     ports:
       - 8888:80
     expose:
       - 80
     depends_on:
       - php
-    volumes:
-      - ../frontend/dist/:/usr/share/nginx/html/:rw
-      - ./php/:/usr/share/nginx/web/:rw
-      - ./nginx/conf/:/etc/nginx/conf.d/:rw
+      - mongo
     links:
       - php:php
+      - mongo:mongo
+    volumes:
+      - ../frontend/dist/:/usr/share/nginx/frontend/:rw
+      - ../backend/:/usr/share/nginx/backend/:rw
+      - ./nginx/conf/:/etc/nginx/conf.d/:rw
     networks:
       - backend
-    container_name: nginx
-    restart: always
 
   php:
-    image: php:7.2-fpm
-    ports:
-      - 9000:9000
-    volumes:
-      - ../frontend/dist:/usr/share/nginx/html/:rw
-      - ./php/:/usr/share/nginx/web/:rw
-    expose:
-      - 9000
-    networks:
-      - backend
+    build:
+      context: ./php
+      dockerfile: Dockerfile
+    image: php:latest
     container_name: php
     restart: always
+    ports:
+      - 9000:9000
+    depends_on:
+      - mongo
+    links:
+      - mongo:mongo
+    volumes:
+      - ../frontend/dist:/usr/share/nginx/frontend/:rw
+      - ../backend/:/usr/share/nginx/backend/:rw
+    networks:
+      - backend
+
+  mongo:
+    image: mongo:latest
+    container_name: mongo
+    restart: always
+    ports:
+      - 27017:27017
+    expose:
+      - 27017
+    networks:
+      - backend
 
 networks:
   backend:
