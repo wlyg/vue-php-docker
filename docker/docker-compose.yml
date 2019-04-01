@@ -5,7 +5,7 @@ services:
     container_name: nginx
     restart: always
     ports:
-      - 8888:80
+      - 80:80
     expose:
       - 80
     depends_on:
@@ -15,7 +15,7 @@ services:
       - php:php
       - mongo:mongo
     volumes:
-      - ../frontend/dist/:/usr/share/nginx/frontend/:rw
+      - ../frontend/:/usr/share/nginx/frontend/:rw
       - ../backend/:/usr/share/nginx/backend/:rw
       - ./nginx/conf/:/etc/nginx/conf.d/:rw
     networks:
@@ -35,7 +35,7 @@ services:
     links:
       - mongo:mongo
     volumes:
-      - ../frontend/dist:/usr/share/nginx/frontend/:rw
+      - ../frontend/:/usr/share/nginx/frontend/:rw
       - ../backend/:/usr/share/nginx/backend/:rw
     networks:
       - backend

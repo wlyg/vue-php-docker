@@ -17,7 +17,7 @@ class BaseController extends Controller
             [
                 'class' => Cors::className(),
                 'cors' => [
-                    'Origin' => ['https://frontend.wanliyangguang.cn'],
+                    'Origin' => ['http://frontend.test.com'],
                     'Access-Control-Request-Method' => ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
                     'Access-Control-Allow-Credentials' => true,
                     'Access-Control-Request-Headers' => ['*'],
