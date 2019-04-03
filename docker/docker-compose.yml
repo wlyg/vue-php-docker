@@ -3,6 +3,7 @@ services:
   nginx:
     image: nginx:latest
     container_name: nginx
+    working_dir: /srv
     restart: always
     ports:
       - 80:80
@@ -15,8 +16,8 @@ services:
       - php:php
       - mongo:mongo
     volumes:
-      - ../frontend/:/usr/share/nginx/frontend/:rw
-      - ../backend/:/usr/share/nginx/backend/:rw
+      - ../frontend/:/srv/frontend/:rw
+      - ../backend/:/srv/backend/:rw
       - ./nginx/conf/:/etc/nginx/conf.d/:rw
     networks:
       - backend
@@ -27,6 +28,7 @@ services:
       dockerfile: Dockerfile
     image: php:latest
     container_name: php
+    working_dir: /srv
     restart: always
     ports:
       - 9000:9000
@@ -35,8 +37,8 @@ services:
     links:
       - mongo:mongo
     volumes:
-      - ../frontend/:/usr/share/nginx/frontend/:rw
-      - ../backend/:/usr/share/nginx/backend/:rw
+      - ../frontend/:/srv/frontend/:rw
+      - ../backend/:/srv/backend/:rw
     networks:
       - backend
 
@@ -48,6 +50,15 @@ services:
       - 27017:27017
     expose:
       - 27017
+    networks:
+      - backend
+
+  builder:
+    build:
+      context: ./builder
+      dockerfile: Dockerfile
+    image: builder:latest
+    container_name: builder
     networks:
       - backend
 
