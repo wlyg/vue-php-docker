@@ -28,6 +28,7 @@ services:
       dockerfile: Dockerfile
     image: php:latest
     container_name: php
+    working_dir: /srv
     restart: always
     ports:
       - 9000:9000

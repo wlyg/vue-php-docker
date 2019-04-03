@@ -2,10 +2,10 @@ init() {
 	echo "aaaaaaaaaaa"
 }
 up() {
-	echo "bbbbbbbbbbb"
+	docker-compose up -d
 }
 build() {
-	echo "cccccccccccccccc"
+	docker run -it php:latest bash
 }
 
 case "$1" in
