@@ -53,6 +53,15 @@ services:
     networks:
       - backend
 
+  builder:
+    build:
+      context: ./builder
+      dockerfile: Dockerfile
+    image: builder:latest
+    container_name: builder
+    networks:
+      - backend
+
 networks:
   backend:
     driver: bridge
