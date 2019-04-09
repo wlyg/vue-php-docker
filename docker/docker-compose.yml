@@ -50,6 +50,8 @@ services:
       - 27017:27017
     expose:
       - 27017
+    volumes:
+      - ./mongodb:/data/db:rw
     networks:
       - backend
 
