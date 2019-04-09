@@ -19,7 +19,7 @@ class BaseController extends Controller
                 'cors' => [
                     'Origin' => ['*'],
                     'Access-Control-Request-Method' => ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
-                    'Access-Control-Allow-Credentials' => true,
+                    'Access-Control-Allow-Credentials' => false,
                     'Access-Control-Request-Headers' => ['*'],
                 ],
             ],
