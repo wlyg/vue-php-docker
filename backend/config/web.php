@@ -58,7 +58,7 @@ $config = [
         ],
         'mongodb' => [
             'class' => 'yii\mongodb\Connection',
-            'dsn' => 'mongodb://localhost:27017/new-world',
+            'dsn' => 'mongodb://mongo:27017/new-world',
             // 'options' => [
             //     "username" => "Username",
             //     "password" => "Password"
@@ -67,8 +67,8 @@ $config = [
         'weConnect' => [
             'class' => 'app\components\WeConnect',
         ],
-        'resque' => [ 
-            'class' => '\resque\RResque', 
+        'resque' => [
+            'class' => '\resque\RResque',
             'server' => 'localhost',     // Redis server address
             'port' => '6379',            // Redis server port
             'database' => 0,             // Redis database number
@@ -85,21 +85,21 @@ $config = [
     'params' => $params,
 ];
 
-if (YII_ENV_DEV) {
-    // configuration adjustments for 'dev' environment
-    $config['bootstrap'][] = 'debug';
-    $config['modules']['debug'] = [
-        'class' => 'yii\debug\Module',
-        // uncomment the following to add your IP if you are not connecting from localhost.
-        //'allowedIPs' => ['127.0.0.1', '::1'],
-    ];
+// if (YII_ENV_DEV) {
+//     // configuration adjustments for 'dev' environment
+//     $config['bootstrap'][] = 'debug';
+//     $config['modules']['debug'] = [
+//         'class' => 'yii\debug\Module',
+//         // uncomment the following to add your IP if you are not connecting from localhost.
+//         //'allowedIPs' => ['127.0.0.1', '::1'],
+//     ];
 
-    $config['bootstrap'][] = 'gii';
-    $config['modules']['gii'] = [
-        'class' => 'yii\gii\Module',
-        // uncomment the following to add your IP if you are not connecting from localhost.
-        //'allowedIPs' => ['127.0.0.1', '::1'],
-    ];
-}
+//     $config['bootstrap'][] = 'gii';
+//     $config['modules']['gii'] = [
+//         'class' => 'yii\gii\Module',
+//         // uncomment the following to add your IP if you are not connecting from localhost.
+//         //'allowedIPs' => ['127.0.0.1', '::1'],
+//     ];
+// }
 
 return $config;

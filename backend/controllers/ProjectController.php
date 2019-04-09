@@ -224,7 +224,7 @@ class ProjectController extends BaseController
         if (file_put_contents('../web/upload/'.$fileName.'.'.$imgType[1],$decodedData)){
             return [
                 'code' => 200,
-                'fileName' => 'https://api.wanliyangguang.cn/upload/'.$fileName.'.'.$imgType[1]
+                'fileName' => 'http://api.test.com/upload/'.$fileName.'.'.$imgType[1]
             ];
         }
     }
