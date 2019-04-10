@@ -49,21 +49,21 @@ $config = [
                 ],
             ],
         ],
-        'db' => $db,
+        'mongodb' => $db,
         'urlManager' => [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
             'rules' => [
             ],
         ],
-        'mongodb' => [
-            'class' => 'yii\mongodb\Connection',
-            'dsn' => 'mongodb://localhost:27017/new-world',
-            // 'options' => [
-            //     "username" => "Username",
-            //     "password" => "Password"
-            // ]
-        ],
+        // 'mongodb' => [
+        //     'class' => 'yii\mongodb\Connection',
+        //     'dsn' => 'mongodb://localhost:27017/new-world',
+        //     // 'options' => [
+        //     //     "username" => "Username",
+        //     //     "password" => "Password"
+        //     // ]
+        // ],
         'weConnect' => [
             'class' => 'app\components\WeConnect',
         ],

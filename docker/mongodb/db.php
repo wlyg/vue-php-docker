@@ -2,5 +2,5 @@
 
 return [
     'class' => 'yii\mongodb\Connection',
-    'dsn' => 'mongodb://localhost:27017/new-world'
+    'dsn' => 'mongodb://mongo:27017/new-world'
 ];

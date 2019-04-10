@@ -51,7 +51,7 @@ services:
     expose:
       - 27017
     volumes:
-      - ./mongodb:/data/db:rw
+      - ./mongodb/db:/data/db:rw
     networks:
       - backend
 
