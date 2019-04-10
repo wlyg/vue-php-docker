@@ -58,7 +58,7 @@ $config = [
         ],
         'mongodb' => [
             'class' => 'yii\mongodb\Connection',
-            'dsn' => 'mongodb://mongo:27017/new-world',
+            'dsn' => 'mongodb://localhost:27017/new-world',
             // 'options' => [
             //     "username" => "Username",
             //     "password" => "Password"
