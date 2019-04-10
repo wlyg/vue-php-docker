@@ -4,7 +4,6 @@
 
 <template>
   <div class="login">
-    <img style="margin:30px; width: 200px" src="../../assets/images/logo.jpg">
     <div class="login-con">
       <Card icon="log-in" title="欢迎登录" :bordered="false">
         <div class="form-con">

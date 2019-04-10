@@ -32,7 +32,7 @@ class BackendUser extends BaseModel
             [
                 ['password', 'default', 'value' => 'abc123_'],
                 ['accountRouter', 'default', 'value' => []],
-                ['avator', 'default', 'value' => 'https://img.kanzhun.com/images/logo/20140719/f5ca1c57d109868a86ddf681a04ee541.jpg']
+                ['avator', 'default', 'value' => '']
             ]
         );
     }

@@ -1,6 +1,5 @@
 <template>
   <div class="home">
-    <img style="margin:30px; width: 200px" src="../../../assets/images/logo.jpg">
   </div>
 </template>
 
