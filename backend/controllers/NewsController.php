@@ -9,6 +9,7 @@ use yii\web\Response;
 use yii\filters\VerbFilter;
 use yii\filters\Cors;
 use app\models\News;
+use app\utils\MongodbUtil;
 use yii\helpers\ArrayHelper;
 use yii\web\UnauthorizedHttpException;
 use yii\web\BadRequestHttpException;
@@ -28,8 +29,8 @@ class NewsController extends BaseController
         $news->title = $params['title'];
         $news->contentUrl = $params['contentUrl'];
         $news->imgs = $params['imgs'];
-        $news->startDate = $params['startDate'];
-        $news->endDate = $params['endDate'];
+        $news->startDate = MongodbUtil::convertToMongoDate($params['startDate']);
+        $news->endDate = MongodbUtil::convertToMongoDate($params['endDate']);
 
         $news->save();
 
