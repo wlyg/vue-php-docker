@@ -19,6 +19,7 @@ services:
       - ../frontend/:/srv/frontend/:rw
       - ../backend/:/srv/backend/:rw
       - ./nginx/conf/:/etc/nginx/conf.d/:rw
+      - ./nginx/ssl/:/etc/nginx/ssl/:rw
     networks:
       - backend
 
