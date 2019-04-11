@@ -4,3 +4,9 @@
     ./start.sh up 启动容器
     ./start.sh stop 停止容器
     ./start.sh build 进入容器编译代码
+        backend: composer (composer.json), -->vender
+            composer install
+        frontend: npm (package.json), -->node_modules
+            cnpm install
+	        npm run build<env>  -->dist
+	        npm run buildLocal  --> .env.local
