@@ -7,8 +7,10 @@ services:
     restart: always
     ports:
       - 80:80
+      - 443:443
     expose:
       - 80
+      - 443
     depends_on:
       - php
       - mongo
@@ -19,6 +21,7 @@ services:
       - ../frontend/:/srv/frontend/:rw
       - ../backend/:/srv/backend/:rw
       - ./nginx/conf/:/etc/nginx/conf.d/:rw
+      - ./nginx/ssl/:/etc/nginx/ssl/:rw
     networks:
       - backend
 
@@ -51,7 +54,7 @@ services:
     expose:
       - 27017
     volumes:
-      - ./mongodb:/data/db:rw
+      - ./mongodb/db:/data/db:rw
     networks:
       - backend
 

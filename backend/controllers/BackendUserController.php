@@ -8,8 +8,6 @@ use yii\web\Controller;
 use yii\web\Response;
 use yii\filters\VerbFilter;
 use yii\filters\Cors;
-use app\models\LoginForm;
-use app\models\ContactForm;
 use app\models\BackendUser;
 use yii\helpers\ArrayHelper;
 use yii\web\UnauthorizedHttpException;
@@ -162,7 +160,7 @@ class BackendUserController extends BaseController
                 if (!$user->save()) {
                     throw new ServerErrorHttpException('create user failed');
                 }
-        
+
                 return [
                    'code' => 200,
                    'msg' => 'ok'
@@ -198,7 +196,7 @@ class BackendUserController extends BaseController
                     'msg' => 'error'
                 ];
             }
-    
+
             return [
                 'code' => 200,
                 'msg' => 'ok'
@@ -230,7 +228,7 @@ class BackendUserController extends BaseController
                     'msg' => 'error'
                 ];
             }
-    
+
             return [
                 'code' => 200,
                 'msg' => 'ok'
