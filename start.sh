@@ -1,21 +1,42 @@
 init() {
-	docker pull ubuntu:latest
-	docker pull mongo:latest
-	docker pull php:7.2-fpm
-	docker pull nginx:latest
-	sudo echo "127.0.0.1 api.test.com" >> /etc/hosts
-	sudo echo "127.0.0.1 frontend.test.com" >> /etc/hosts
+	echo "======================================================"
+	echo "Init project"
+	echo "======================================================"
+	docker pull wlyg/builder
+	docker pull wlyg/mongo
+	docker pull wlyg/php
+	docker pull wlyg/nginx
+	echo "127.0.0.1 api.test.com" >> /etc/hosts
+	echo "127.0.0.1 frontend.test.com" >> /etc/hosts
+	echo "======================================================"
+	echo "Init success. You can run: ./start.sh up"
+	echo "======================================================"
 }
 up() {
+	echo "======================================================"
+	echo "Start server"
+	echo "======================================================"
 	cd $PWD/docker
 	docker-compose up -d
+	echo "======================================================"
+	echo "Start server success"
+	echo "======================================================"
 }
 stop() {
+	echo "======================================================"
+	echo "Stop server"
+	echo "======================================================"
 	cd $PWD/docker
 	docker-compose stop
+	echo "======================================================"
+	echo "Stop server success"
+	echo "======================================================"
 }
 build() {
-	docker run -it -v $PWD/backend:/srv/backend -v $PWD/frontend:/srv/frontend builder:latest bash
+	echo "======================================================"
+	echo "You can use composer and npm"
+	echo "======================================================"
+	docker run -it -v $PWD/backend:/srv/backend -v $PWD/frontend:/srv/frontend wlyg/builder bash
 }
 
 case "$1" in
