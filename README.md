@@ -5,8 +5,9 @@
     - ./start.sh stop 停止容器
     - ./start.sh build 进入容器编译代码
         - backend: composer (composer.json), -->vender
-           - composer install
+           - ~~composer install~~
         - frontend: npm (package.json), -->node_modules
            - cnpm install
            - npm run build<env>  -->dist
            - npm run buildLocal  --> .env.local
+- 3.进入backend目录，sudo QUEUE=* php vendor/resque/yii2-resque/bin/resque 启动worker
