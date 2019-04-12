@@ -11,3 +11,9 @@
            - npm run build<env>  -->dist
            - npm run buildLocal  --> .env.local
 - 3.进入backend目录，sudo QUEUE=* php vendor/resque/yii2-resque/bin/resque 启动worker
+- todo:
+    - 创建redis容器
+    - worker采用startup.sh脚本命令启动
+    - 设计job通用模板
+    - ./startupsh init阶段添加执行cnpm install安装前端依赖包
+    - ./startup.sh build添加代码改动自动build的使用方式
