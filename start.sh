@@ -36,7 +36,7 @@ build() {
 	echo "======================================================"
 	echo "You can use composer and npm"
 	echo "======================================================"
-	docker run -it -v backend:/srv/backend -v frontend:/srv/frontend wlyg/builder bash
+	docker run -it -v $PWD/backend:/srv/backend -v $PWD/frontend:/srv/frontend wlyg/builder bash
 }
 
 case "$1" in
