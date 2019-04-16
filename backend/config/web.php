@@ -69,14 +69,14 @@ $config = [
         ],
         'resque' => [
             'class' => '\resque\RResque',
-            'server' => 'localhost',     // Redis server address
+            'server' => 'redis',     // Redis server address
             'port' => '6379',            // Redis server port
             'database' => 0,             // Redis database number
             'password' => '',            // Redis password auth, set to '' or null when no auth needed
         ],
         'redis' => [
             'class' => 'yii\redis\Connection',
-            'hostname' => 'localhost',
+            'hostname' => 'redis',
             'port' => 6379,
             'database' => 0,
         ],

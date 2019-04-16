@@ -4,6 +4,7 @@ init() {
 	echo "======================================================"
 	docker pull wlyg/builder
 	docker pull wlyg/mongo
+	docker pull wlyg/redis
 	docker pull wlyg/php
 	docker pull wlyg/nginx
 	echo "127.0.0.1 api.test.com" >> /etc/hosts
